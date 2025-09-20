@@ -1,0 +1,21 @@
+{
+  "short_name": "SocialMix",
+  "name": "SocialMix App",
+  "description": "Scopri locali ed eventi, e connettiti con la community.",
+  "icons": [
+    {
+      "src": "https://placehold.co/192x192/f43f5e/ffffff?text=SM",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://placehold.co/512x512/f43f5e/ffffff?text=SM",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#f43f5e",
+  "background_color": "#ffffff"
+}
