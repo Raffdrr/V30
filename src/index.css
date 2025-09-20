@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: contain; /* Prevents pull-to-refresh on main body */
+  background-color: #f8fafc; /* Corresponds to slate-50 for consistent overscroll bg */
+}
+.form-input { 
+  margin-top: 0.25rem; /* mt-1 */
+  display: block;
+  width: 100%;
+  padding-left: 0.75rem; /* px-3 */
+  padding-right: 0.75rem; /* px-3 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem; /* py-2 */
+  border-width: 1px; /* border */
+  border-color: #cbd5e1; /* border-slate-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* shadow-sm */
+  outline: 2px solid transparent; /* focus:outline-none */
+  outline-offset: 2px;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem;
+  transition-property: box-shadow; /* transition-shadow */
+  transition-duration: 200ms; /* duration-200 */
+  -webkit-appearance: none; /* Better default styling on iOS */
+  appearance: none;
+}
+@media (min-width: 640px) {
+  .form-input {
+    padding-top: 0.625rem; /* sm:py-2.5 */
+    padding-bottom: 0.625rem; /* sm:py-2.5 */
+    font-size: 0.875rem; /* sm:text-sm */
+    line-height: 1.25rem;
+  }
+}
+.form-input:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-color: #f43f5e; /* focus:ring-rose-500 */
+  border-color: #f43f5e; /* focus:border-rose-500 */
+}
+
+.animate-toast-pop { animation: toast-pop 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; }
+@keyframes toast-pop { 0% { transform: translateX(-50%) translateY(100%) scale(0.5); opacity: 0; } 100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; } }
+
+.shadow-top { box-shadow: 0 -2px 6px -1px rgb(0 0 0 / 0.05), 0 -1px 3px -1px rgb(0 0 0 / 0.03); }
+.shadow-top-strong { box-shadow: 0 -6px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.animate-card-enter { animation: card-enter 0.4s ease-out forwards; opacity: 0; transform: translateY(20px); }
+@keyframes card-enter { to { opacity: 1; transform: translateY(0); } }
+.animate-page-content-enter { animation: page-content-enter 0.5s ease-out forwards; }
+@keyframes page-content-enter { from { opacity: 0.7; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fab-menu-open { animation: fab-menu-open 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+@keyframes fab-menu-open { 0% { opacity: 0; transform: translateY(10px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+.animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; opacity: 0; transform: translateY(20px); }
+@keyframes fade-in-up { to { opacity: 1; transform: translateY(0); } }
+
+.animate-slide-down { animation: slide-down 0.35s ease-out forwards; }
+@keyframes slide-down { 
+  from { opacity: 0; transform: translateY(-15px); max-height: 0; } 
+  to { opacity: 1; transform: translateY(0); max-height: 1000px; /* Large enough value */ } 
+}
+
+/* Styles for bottom search bar visibility based on class */
+.bottom-search-bar-visible {
+  max-height: 70px;
+  opacity: 1;
+  visibility: visible;
+  padding-top: 0.625rem; /* py-2.5 */
+  padding-bottom: 0.625rem; /* py-2.5 */
+  border-top-width: 1px;
+}
+.bottom-search-bar-hidden {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top-width: 0;
+  margin-bottom: 0; /* Important to prevent layout shift */
+}
